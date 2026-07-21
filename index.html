@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0B0E14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>ServiTechRD | Servicio Técnico Especialista en PC y Consolas</title>
 <meta name="description" content="ServiTechRD: mantenimiento, armado, upgrades y reparación profesional de PC y consolas en Santiago de los Caballeros, RD. Limpieza, pasta térmica premium y proceso documentado en video.">
 
@@ -57,6 +60,7 @@
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
+    -webkit-text-fill-color:transparent; /* REQUERIDO por Safari/iOS: sin esto el texto puede no verse */
   }
 
   /* Botón CTA principal con borde degradado animado sutil */
@@ -108,6 +112,7 @@
       linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
     background-size:auto, auto, auto, 42px 42px, 42px 42px;
     background-color:var(--bg);
+    -webkit-mask-image:linear-gradient(to bottom, black, transparent 99%); /* REQUERIDO por Safari/iOS */
     mask-image:linear-gradient(to bottom, black, transparent 99%);
   }
 
@@ -151,6 +156,32 @@
     html{ scroll-behavior:auto; }
     .wa-float{ animation:none; }
     .btn-cta:hover{ transform:none; }
+  }
+
+  /* Reset de apariencia para el slider de rango (Safari/iOS renderiza esto distinto por defecto) */
+  input[type="range"]{
+    -webkit-appearance:none;
+    appearance:none;
+    height:6px;
+    border-radius:9999px;
+    background:var(--line);
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    appearance:none;
+    width:18px;
+    height:18px;
+    border-radius:9999px;
+    background:var(--cool);
+    cursor:pointer;
+  }
+  input[type="range"]::-moz-range-thumb{
+    width:18px;
+    height:18px;
+    border:none;
+    border-radius:9999px;
+    background:var(--cool);
+    cursor:pointer;
   }
 </style>
 </head>
